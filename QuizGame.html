@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Games, Movies, and Miscellaneous!</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<link href='https://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<script type="text/javascript" src="QuizGame.js"></script>
+
+<!-- Background Image -->
+<div class="Background"><img src="images/TVScreen.png"></div>
+
+<audio class="Audio" controls autoplay loop>
+	<source src="images/QuizShow.mp3" type="audio/mp3">
+</audio>
+
+<!-- START PAGE FOR THE QUIZ -->
+<div class="container text-center StartPage">
+	<h1 class="RightOrWrong">RIGHT<br>OR<br>WRONG</h1>
+	<h2 class="Score"></h2>
+	<button class="StartButton">Start the Quiz!</button>
+</div>
+
+<!-- QUESTION PAGE -->
+<div class="container text-center QuestionPage">
+	<h2 class="Question"></h2>
+	<h3 class="TimeLeft">15</h3>
+	<button class="choice0"></button><br>
+	<button class="choice1"></button><br>
+	<button class="choice2"></button><br>
+	<button class="choice3"></button><br>
+</div>
+
+<div class="container text-center GameOver">
+	<h2 class="OverMessage">GAME OVER!</h2>
+	<h2 class="Score"></h2>
+	<button class="ResetGame">Play Again</button>
+</div>
+
+
+</body>
+</html>
