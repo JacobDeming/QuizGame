@@ -41,7 +41,22 @@ var categories={
 		Q6:{
 			Question:"What was the codename for the Nintendo GameCube?",
 			Correct:"Dolphin",
-			options:["Dlophin","Revolution","Project Reality","Ultra Famicom"],
+			options:["Dolphin","Revolution","Project Reality","Ultra Famicom"],
+		},
+		Q7:{
+			Question:"In what game did the 'Konami Code' originate?",
+			Correct:"Gradius",
+			options:["Gradius","Contra","Super Mario Brothers","Metal Gear"],
+		},
+		Q8:{
+			Question:"Sonic the Hedgehog originally had a human girlfriend. What was her name?",
+			Correct:"Madonna",
+			options:["Madonna","Rose","Bunny","Kate"],
+		},
+		Q9:{
+			Question:"'E.T. - The Extra Terrestrial' for the Atari 2600 sold more units than which of the following games?",
+			Correct:"Space Invaders",
+			options:["Space Invaders","Pac-Man","Defender","None of These"],
 		},
 	},
 	movies:{
@@ -69,6 +84,16 @@ var categories={
 			Question:"When was the Russian film 'Battleship Potemkin' released?",
 			Correct:"1925",
 			options:["1925","1934","2001","1963"],
+		},
+		Q6:{
+			Question:"What classic film was called production 9401 during filming?",
+			Correct:"Psycho",
+			options:["Psycho","Citizen Kane","The Maltese Falcon","Vertigo"],
+		},
+		Q7:{
+			Question:"William Hurt won the best actor Oscar for what 1985 movie?",
+			Correct:"The Kiss of the Spiderwoman",
+			options:["Cat People","The Kiss of the Spiderwoman","Body Heat","Dark City"],
 		},
 	},
 	miscellaneous:{
@@ -114,6 +139,11 @@ var timer = {
 	    counter2=setTimeout(timer.timeUp,15000);
 	},
 
+	nextScreen: function(){
+		console.log("hello");
+		counter3=setTimeout(getQuestion,10000);
+	},
+
 	stop: function(){
 	    clearInterval(counter);
 	    clearTimeout(counter2);
@@ -122,12 +152,14 @@ var timer = {
 	count: function(){
 	    timer.time--;
 	    $(".TimeLeft").html(timer.time);
+	    $(".StartButton").html("Next Question: "+timer.time);
 	},
 
 	timeUp: function(){
 		wrong++;
 		timer.stop();
 		timer.reset();
+		timer.nextScreen();
 		$(".StartPage").show();
 		$(".QuestionPage").hide();
 		$(".RightOrWrong").html("TIMES UP!");
@@ -138,9 +170,7 @@ var timer = {
 
 //STARTS THE GAME
 $(".StartButton").on("click", function(){
-	getQuestion();
-	$("body").css("background-image","url('images/Static.gif')");
-	$(".StartPage").hide();})
+	getQuestion();})
 
 //SHUFFLES THE ANSWERS
 var shuffle= function(thing){
@@ -149,6 +179,9 @@ var shuffle= function(thing){
 
 //RANDOMLY SELECTS A CATEGORY AND QUESTION
 var getQuestion=function(){
+	timer.reset();
+	$("body").css("background-image","url('images/Static.gif')");
+	$(".StartPage").hide();
 	timer.start();
 	count++;
 	var keys=Object.keys(categories);
@@ -186,6 +219,7 @@ var checkAnswer=function(x){
 	if(x==theCurrentQuestion.Correct && count<10){
 		right++;
 		timer.reset();
+		timer.nextScreen();
 		$(".StartPage").show();
 		$(".QuestionPage").hide();
 		$(".RightOrWrong").html("CORRECT!");
@@ -195,6 +229,7 @@ var checkAnswer=function(x){
 	else if(x!=theCurrentQuestion.Correct && count<10){
 		wrong++;
 		timer.reset();
+		timer.nextScreen();
 		$(".StartPage").show();
 		$(".QuestionPage").hide();
 		$(".RightOrWrong").html("WRONG!");
