@@ -219,7 +219,6 @@ var checkAnswer=function(x){
 	if(x==theCurrentQuestion.Correct && count<10){
 		right++;
 		timer.reset();
-		timer.nextScreen();
 		$(".StartPage").show();
 		$(".QuestionPage").hide();
 		$(".RightOrWrong").html("CORRECT!");
@@ -229,7 +228,6 @@ var checkAnswer=function(x){
 	else if(x!=theCurrentQuestion.Correct && count<10){
 		wrong++;
 		timer.reset();
-		timer.nextScreen();
 		$(".StartPage").show();
 		$(".QuestionPage").hide();
 		$(".RightOrWrong").html("WRONG!");
