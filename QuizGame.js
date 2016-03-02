@@ -139,11 +139,6 @@ var timer = {
 	    counter2=setTimeout(timer.timeUp,15000);
 	},
 
-	nextScreen: function(){
-		console.log("hello");
-		counter3=setTimeout(getQuestion,10000);
-	},
-
 	stop: function(){
 	    clearInterval(counter);
 	    clearTimeout(counter2);
@@ -159,7 +154,6 @@ var timer = {
 		wrong++;
 		timer.stop();
 		timer.reset();
-		timer.nextScreen();
 		$(".StartPage").show();
 		$(".QuestionPage").hide();
 		$(".RightOrWrong").html("TIMES UP!");
