@@ -41,7 +41,7 @@ var categories={
 		Q6:{
 			Question:"What was the codename for the Nintendo GameCube?",
 			Correct:"Dolphin",
-			options:["Dolphin","Revolution","Project Reality","Ultra Famicom"],
+			options:["Dlophin","Revolution","Project Reality","Ultra Famicom"],
 		},
 		Q7:{
 			Question:"In what game did the 'Konami Code' originate?",
@@ -147,7 +147,6 @@ var timer = {
 	count: function(){
 	    timer.time--;
 	    $(".TimeLeft").html(timer.time);
-	    $(".StartButton").html("Next Question: "+timer.time);
 	},
 
 	timeUp: function(){
@@ -164,7 +163,9 @@ var timer = {
 
 //STARTS THE GAME
 $(".StartButton").on("click", function(){
-	getQuestion();})
+	getQuestion();
+	$("body").css("background-image","url('images/Static.gif')");
+	$(".StartPage").hide();})
 
 //SHUFFLES THE ANSWERS
 var shuffle= function(thing){
@@ -173,9 +174,6 @@ var shuffle= function(thing){
 
 //RANDOMLY SELECTS A CATEGORY AND QUESTION
 var getQuestion=function(){
-	timer.reset();
-	$("body").css("background-image","url('images/Static.gif')");
-	$(".StartPage").hide();
 	timer.start();
 	count++;
 	var keys=Object.keys(categories);
