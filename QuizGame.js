@@ -41,7 +41,7 @@ var categories={
 		Q6:{
 			Question:"What was the codename for the Nintendo GameCube?",
 			Correct:"Dolphin",
-			options:["Dlophin","Revolution","Project Reality","Ultra Famicom"],
+			options:["Dolphin","Revolution","Project Reality","Ultra Famicom"],
 		},
 		Q7:{
 			Question:"In what game did the 'Konami Code' originate?",
